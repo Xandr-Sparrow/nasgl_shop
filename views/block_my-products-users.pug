@@ -1,0 +1,39 @@
+extends layout_users
+
+block content
+
+  <section class="my-products view" id="my-products">
+  <h2 class="title">#{title}</h2>
+    <form method="post" enctype='multipart/form-data' class="card padding-2">
+      <input name="img" type="file" multiple accept="image/jpeg" class="card__img">
+        <div class="card__description-new">
+          <p class="heading">Товар:</p>
+          <input name="product" class="card__title" type="text">
+          <p class="heading">Описание:</p>
+          <textarea name="description" class="card__subtitle" type="text"></textarea>
+        </div>
+        <button class="card__button button" id="card__button-add">Добавить</button>
+      </div>
+    </form>
+
+    <div method="post" class="padding-2">
+      <div class="cards-wrap">
+
+        if products
+        each product in products
+        
+          <form class="card" method="post" action="">
+            <div class="card__wrap">
+              <img class="card__img" src="/gallery/#{product.img}">
+              <div class="card__description">
+                <p class="heading">Товар:</p>
+                <p class="card__title">#{product.product}</p>
+                <p class="heading">Описание:</p>
+                <p class="card__subtitle">#{product.description}</p>
+              </div>
+            </div>
+            <button class="card__button button" name="product" type="submit" value=#{product.id}>Удалить</button>
+          </form >
+      </div>
+    </div>
+  </section>

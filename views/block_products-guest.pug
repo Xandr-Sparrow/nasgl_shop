@@ -1,0 +1,26 @@
+extends layout_guest
+
+block content
+
+  <section class="products" id="products">
+    <h2 class="title">#{title}</h2>
+    <div class="cards-wrap">
+
+      if products
+        each product in products
+
+          <form class="card" method="post" action="">
+            <div class="card__wrap">
+              <img class="card__img" src="/gallery/#{product.img}">
+              <div class="card__description">
+                <p class="heading">Товар:</p>
+                <p class="card__title">#{product.product}</p>
+                <p class="heading">Описание:</p>
+                <p class="card__subtitle">#{product.description}</p>
+              </div>
+            </div>
+            <button class="card__button button" name="product" type="submit" value=#{product.id}>В корзину</button>
+          </form >
+
+    </div>
+  </section>

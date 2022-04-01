@@ -1,0 +1,37 @@
+extends layout_users
+
+block content
+
+  <section class="basket view">
+    <h2 class="title">#{title}</h2>
+      <div class="cards-wrap padding-2">
+
+        if products
+          each product in products
+
+            <form class="card" method="post" action="">
+              <div class="card__wrap">
+                <img class="card__img" src="/gallery/#{product.img}">
+                <div class="card__description">
+                  <p class="heading">Товар:</p>
+                  <p class="card__title">#{product.product}</p>
+                  <p class="heading">Описание:</p>
+                  <p class="card__subtitle">#{product.description}</p>
+                  <p class="heading">Количество:</p>
+                  <div class="card__quantity">
+                    <button type="button" class="card__quantity-button card__quantity-button--minus">-</button>
+                    <input class="card__quantity-number" onkeypress="validate(event)" type="text" value="1">
+                    <button type="button" class="card__quantity-button card__quantity-button--plus">+</button>
+                  </div>
+                </div>
+              </div>
+              <button class="card__button button" name="product" type="submit" value=#{product.id}>Удалить</button>
+            </form>
+
+        else
+
+          <h2 class="title">Товаров</h2>
+          <h2 class="title">нет</h2>
+      </div>
+      <button class="button basket__button" type="submit">Купить</button>
+  </section>

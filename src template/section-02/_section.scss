@@ -1,0 +1,13 @@
+.first-screen {
+    display: flex;
+    flex-flow: column;
+    justify-content: space-around;
+    align-items: center;
+    gap: 2rem;
+    min-height: 100%;
+
+    &__img {
+        width: 80%;
+
+    }
+}
